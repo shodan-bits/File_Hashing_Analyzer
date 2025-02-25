@@ -1,0 +1,5 @@
+{
+    "folder_to_monitor": "data/",
+    "hash_algorithm": "sha256",
+    "log_file": "logs/hashing.log"
+}
