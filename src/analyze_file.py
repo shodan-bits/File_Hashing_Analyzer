@@ -9,6 +9,13 @@ import uuid  # Récupération de l'ID unique de l'appareil
 import socket  # Infos sur la machine locale
 import platform  # OS, version, nom de l'ordinateur
 
+# Importation correcte du module hash_file depuis src
+try:
+    from src.hash_file import hash_file
+except ModuleNotFoundError:
+    from hash_file import hash_file  # Alternative si exécuté depuis src/
+
+# Importation des modules externes si disponibles
 try:
     import exifread  # Métadonnées EXIF (images)
     import mutagen   # Métadonnées audio/vidéo
