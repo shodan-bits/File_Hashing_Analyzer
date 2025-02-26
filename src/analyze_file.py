@@ -5,21 +5,20 @@ import mimetypes
 import hashlib
 import stat
 import magic
-import uuid  # Récupération de l'ID unique de l'appareil
-import socket  # Infos sur la machine locale
-import platform  # OS, version, nom de l'ordinateur
+import uuid  
+import socket  
+import platform  
 
-# Importation correcte du module hash_file depuis src
+
 try:
     from src.hash_file import hash_file
 except ModuleNotFoundError:
-    from hash_file import hash_file  # Alternative si exécuté depuis src/
+    from hash_file import hash_file  
 
-# Importation des modules externes si disponibles
 try:
-    import exifread  # Métadonnées EXIF (images)
-    import mutagen   # Métadonnées audio/vidéo
-    from PyPDF2 import PdfReader  # Métadonnées PDF
+    import exifread  
+    import mutagen   
+    from PyPDF2 import PdfReader 
 except ImportError:
     exifread = None
     mutagen = None
@@ -50,7 +49,7 @@ def get_device_info():
         "Système d'exploitation": platform.system(),
         "Version OS": platform.version(),
         "Architecture CPU": platform.architecture()[0],
-        "ID unique de l'appareil": str(uuid.getnode()),  # Identifiant matériel
+        "ID unique de l'appareil": str(uuid.getnode()),  
     }
 
 def get_file_metadata(filepath):
@@ -71,7 +70,7 @@ def get_file_metadata(filepath):
         "Infos Appareil": get_device_info(),
     }
 
-    # Métadonnées spécifiques aux types de fichiers
+    
     file_type = metadata["Type MIME"]
     
     if file_type.startswith("image") and exifread:
@@ -91,7 +90,7 @@ def extract_exif_metadata(filepath):
         tags = exifread.process_file(img_file)
         exif_data = {tag: str(tags[tag]) for tag in tags if tag not in ["JPEGThumbnail", "TIFFThumbnail", "Filename", "EXIF MakerNote"]}
 
-        # Ajout des données sur l'appareil photo ou smartphone utilisé
+        
         if "Image Model" in exif_data:
             exif_data["Appareil Utilisé"] = exif_data["Image Model"]
         if "EXIF LensMake" in exif_data:
