@@ -23,7 +23,7 @@ pip install -r requirements.txt
 ```
 Si `requirements.txt` est absent, installez manuellement :
 ```bash
-pip install pycryptodome watchdog python-magic exifread mutagen pypdf2
+pip install pycryptodome watchdog python-magic exifread mutagen pypdf2 tqdm
 ```
 
 ---
@@ -52,10 +52,18 @@ python src/analyze_file.py /chemin/vers/le/fichier
 python src/monitor_folder.py /chemin/vers/le/dossier
 ```
 
-### 🔹 Signer et vérifier un fichier
+### 🔹 Signer un fichier et vérifier son intégrité
+#### ✏️ **Générer une signature HMAC**
 ```bash
-python src/sign_verify.py /chemin/vers/le/fichier
+python src/sign_verify.py sign /chemin/vers/le/fichier --algo sha512 --save
 ```
+📌 Cela génère une signature HMAC avec l'algorithme SHA-512 et l'enregistre dans `logs/signatures.json`.
+
+#### 🔍 **Vérifier un fichier avec sa signature enregistrée**
+```bash
+python src/sign_verify.py verify /chemin/vers/le/fichier
+```
+📌 Cela compare le fichier avec sa signature et indique s'il a été **modifié ou non**.
 
 ### 🔹 Exécuter tout le projet
 ```bash
@@ -86,6 +94,4 @@ python run.py
   ```
 
 ---
-
-
 
