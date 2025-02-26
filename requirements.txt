@@ -1,2 +1,6 @@
 pycryptodome
 watchdog
+python-magic
+exifread
+mutagen
+pypdf2
