@@ -4,3 +4,4 @@ python-magic
 exifread
 mutagen
 pypdf2
+tqdm
