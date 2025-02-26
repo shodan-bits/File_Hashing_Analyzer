@@ -8,7 +8,8 @@ import logging
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 from datetime import datetime
-from hash_file import hash_file  # Import du module de hachage
+from src.hash_file import hash_file
+  # Import du module de hachage
 
 # Configuration du logging
 LOG_FILE = "logs/monitoring.log"
