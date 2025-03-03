@@ -40,6 +40,7 @@ python src/hash_file.py /chemin/vers/le/fichier
 python src/analyze_file.py /chemin/vers/le/fichier
 ```
 
+
 🔍 **L'analyse inclut :**
 - Hachages multiples (`MD5, SHA-1, SHA-256, BLAKE2b`)
 - Informations sur l'appareil ayant créé le fichier (modèle, fabricant, objectif...)
@@ -69,20 +70,21 @@ python src/sign_verify.py verify /chemin/vers/le/fichier
 ```bash
 python src/list_files.py "C:\Users\shodan\Documents\" --algo sha512 --output result.json
 
+```
+### 🔹 Générer un rapport HTML des fichiers analysés
+``` bash
+python src/generate_report.py result.json report.html
+
+
+```
 ### 🔹  Comparer deux dossiers pour détecter les changements
 ```bash
 python src/compare_folders.py "C:\Backup1" "C:\Backup2" --algo sha256
 
-### 🔹 Générer un rapport HTML des fichiers analysés
-```bash
-python src/generate_report.py result.json report.html
-
-
-
-### 🔹 Exécuter tout le projet
+```
+  ### 🔹 Exécuter tout le projet
 ```bash
 python run.py
-```
 
 💡 **Remarque :** Le fichier ou dossier **n'a pas besoin d'être dans le même dossier que le programme**. Vous pouvez spécifier un **chemin absolu** (`/home/user/fichier.txt` ou `C:\Users\Nom\fichier.txt`) ou un **chemin relatif** (`../mon_fichier.txt`).
 
