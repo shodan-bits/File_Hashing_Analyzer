@@ -85,6 +85,7 @@ python src/compare_folders.py "C:\Backup1" "C:\Backup2" --algo sha256
   ### 🔹 Exécuter tout le projet
 ```bash
 python run.py
+```
 
 💡 **Remarque :** Le fichier ou dossier **n'a pas besoin d'être dans le même dossier que le programme**. Vous pouvez spécifier un **chemin absolu** (`/home/user/fichier.txt` ou `C:\Users\Nom\fichier.txt`) ou un **chemin relatif** (`../mon_fichier.txt`).
 
