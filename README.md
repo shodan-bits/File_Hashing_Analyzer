@@ -65,6 +65,20 @@ python src/sign_verify.py verify /chemin/vers/le/fichier
 ```
 📌 Cela compare le fichier avec sa signature et indique s'il a été **modifié ou non**.
 
+### 🔹 Lister tous les fichiers d’un dossier avec leurs hachages
+```bash
+python src/list_files.py "C:\Users\shodan\Documents\" --algo sha512 --output result.json
+
+### 🔹  Comparer deux dossiers pour détecter les changements
+```bash
+python src/compare_folders.py "C:\Backup1" "C:\Backup2" --algo sha256
+
+### 🔹 Générer un rapport HTML des fichiers analysés
+```bash
+python src/generate_report.py result.json report.html
+
+
+
 ### 🔹 Exécuter tout le projet
 ```bash
 python run.py
